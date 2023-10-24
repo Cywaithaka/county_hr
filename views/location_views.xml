@@ -1,0 +1,136 @@
+<odoo>
+    <data>
+
+        <!-- County Tree View -->
+        <record id="view_county_tree" model="ir.ui.view">
+            <field name="name">county.tree</field>
+            <field name="model">county</field>
+            <field name="arch" type="xml">
+                <tree string="Counties">
+                    <field name="name"/>
+                    <field name="description"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- County Form View -->
+        <record id="view_county_form" model="ir.ui.view">
+            <field name="name">county.form</field>
+            <field name="model">county</field>
+            <field name="arch" type="xml">
+                <form string="County">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="description"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Subcounty Tree View -->
+        <record id="view_subcounty_tree" model="ir.ui.view">
+            <field name="name">subcounty.tree</field>
+            <field name="model">subcounty</field>
+            <field name="arch" type="xml">
+                <tree string="Subcounties">
+                    <field name="name"/>
+                    <field name="description"/>
+                    <field name="county_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Subcounty Form View -->
+        <record id="view_subcounty_form" model="ir.ui.view">
+            <field name="name">subcounty.form</field>
+            <field name="model">subcounty</field>
+            <field name="arch" type="xml">
+                <form string="Subcounty">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="description"/>
+                            <field name="county_id"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Location Tree View -->
+        <record id="view_location_tree" model="ir.ui.view">
+            <field name="name">location.tree</field>
+            <field name="model">location</field>
+            <field name="arch" type="xml">
+                <tree string="Locations">
+                    <field name="name"/>
+                    <field name="description"/>
+                    <field name="subcounty_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Location Form View -->
+        <record id="view_location_form" model="ir.ui.view">
+            <field name="name">location.form</field>
+            <field name="model">location</field>
+            <field name="arch" type="xml">
+                <form string="Location">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="description"/>
+                            <field name="subcounty_id"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Action for County -->
+        <record id="action_county" model="ir.actions.act_window">
+            <field name="name">Counties</field>
+            <field name="res_model">county</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- Action for Subcounty -->
+        <record id="action_subcounty" model="ir.actions.act_window">
+            <field name="name">Subcounties</field>
+            <field name="res_model">subcounty</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- Action for Location -->
+        <record id="action_location" model="ir.actions.act_window">
+            <field name="name">Locations</field>
+            <field name="res_model">location</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- Action for Village -->
+        <record id="action_village" model="ir.actions.act_window">
+            <field name="name">Villages</field>
+            <field name="res_model">village</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+        <menuitem id="territory_config_menu" name="Territory" parent="base_hr_config_menu" sequence="30"/>
+
+        <!-- Menu for County -->
+        <menuitem id="menu_county" name="Counties" parent="territory_config_menu" action="action_county" sequence="20"/>
+
+        <!-- Menu for Subcounty -->
+        <menuitem id="menu_subcounty" name="Subcounties" parent="territory_config_menu" action="action_subcounty" sequence="21"/>
+
+        <!-- Menu for Location -->
+        <menuitem id="menu_location" name="Locations" parent="territory_config_menu" action="action_location" sequence="22"/>
+
+        <!-- Menu for Village -->
+        <menuitem id="menu_village" name="Villages" parent="territory_config_menu" action="action_village" sequence="23"/>
+
+    </data>
+</odoo>

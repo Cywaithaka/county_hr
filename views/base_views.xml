@@ -1,0 +1,8 @@
+<odoo>
+    <data>
+        <menuitem id="base_hr_menu" name="Human Resource" sequence="20"/>
+
+        <menuitem id="base_hr_config_menu" name="Configuration" parent="base_hr_menu" sequence="20"/>
+
+    </data>
+</odoo>

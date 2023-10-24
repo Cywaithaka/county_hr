@@ -1,0 +1,13 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_human_resource_manager,job.applicant.manager,model_human_resource,group_hr_manager,1,1,1,1
+access_human_resource_user,job.applicant.manager,model_human_resource,group_hr_user,1,1,1,0
+access_academic_qualification_manager,academic.qualification.manager,model_academic_qualification,group_hr_manager,1,1,1,1
+access_academic_qualification_user,academic.qualification.user,model_academic_qualification,group_hr_user,1,1,1,0
+access_county_manager,county.model_county_manager,model_county,group_hr_manager,1,1,1,1
+access_county_user,county.model_county_user,model_county,group_hr_user,1,0,0,0
+access_subcounty_manager,subcounty.model_subcounty_manager,model_subcounty,group_hr_manager,1,1,1,1
+access_subcounty_user,subcounty.model_subcounty_user,model_subcounty,group_hr_user,1,0,0,0
+access_location_manager,location.model_location_manager,model_location,group_hr_manager,1,1,1,1
+access_location_user,location.model_location_user,model_location,group_hr_user,1,0,0,0
+access_village_manager,village.model_village_manager,model_village,group_hr_manager,1,1,1,1
+access_village_user,village.model_village_user,model_village,group_hr_user,1,0,0,0
