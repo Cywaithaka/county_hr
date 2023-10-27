@@ -89,6 +89,19 @@
             </field>
         </record>
 
+        <!-- Job Applicant Search View -->
+        <record id="view_job_applicant_search" model="ir.ui.view">
+            <field name="name">human.resource.search</field>
+            <field name="model">human.resource</field>
+            <field name="arch" type="xml">
+                <search string="Search Job Applicants">
+                    <field name="name" string="Applicant Name"/>
+                    <field name="email" string="Email"/>
+                    <field name="phone" string="Phone"/>
+                </search>
+            </field>
+        </record>
+
         <!-- Job Applicant Menu Action -->
         <record id="action_human_resource" model="ir.actions.act_window">
             <field name="name">People</field>
