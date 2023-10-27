@@ -28,14 +28,31 @@ class HumanResource(models.Model):
 
     @api.onchange("location_id")
     def onchange_location_id(self):
+        res = {}
         for record in self:
             location = record.location_id
             if not record.subcounty_id and location and location.subcounty_id:
                 record.subcounty_id = location.subcounty_id.id
+            if location:
+                res["domain"] = {"village_id": [("location_id", "=", location.id)]}
+        return res
 
-    @api.onchange("location_id")
+    @api.onchange("subcounty_id")
     def onchange_subcounty_id(self):
+        res = {}
         for record in self:
             subcounty = record.subcounty_id
             if not record.county_id and subcounty and subcounty.county_id:
                 record.county_id = subcounty.county_id.id
+            if subcounty:
+                res["domain"] = {"location_id": [("subcounty_id", "=", subcounty.id)]}
+        return res
+
+    @api.onchange("county_id")
+    def onchange_county_id(self):
+        res = {}
+        for record in self:
+            county = record.county_id
+            if county:
+                res["domain"] = {"subcounty_id": [("county_id", "=", county.id)]}
+        return res
