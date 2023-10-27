@@ -98,6 +98,10 @@
                     <field name="name" string="Applicant Name"/>
                     <field name="email" string="Email"/>
                     <field name="phone" string="Phone"/>
+                    <field name="qualifications" string="Academics" filter_domain="['|', ('qualifications.degree', 'ilike', self), ('qualifications.institution', 'ilike', self)]"/>
+                    <field name="subcounty_id"/>
+                    <field name="location_id"/>
+                    <field name="village_id"/>
                 </search>
             </field>
         </record>
