@@ -18,3 +18,24 @@ class HumanResource(models.Model):
     location_id = fields.Many2one('location', string='Location')
     village_id = fields.Many2one('village', string='Village')
     qualifications = fields.One2many('academic.qualification', 'human_resource_id', string='Academic Qualifications')
+
+    @api.onchange("village_id")
+    def onchange_village_id(self):
+        for record in self:
+            village = record.village_id
+            if not record.location_id and village and village.location_id:
+                record.location_id = village.location_id.id
+
+    @api.onchange("location_id")
+    def onchange_location_id(self):
+        for record in self:
+            location = record.location_id
+            if not record.subcounty_id and location and location.subcounty_id:
+                record.subcounty_id = location.subcounty_id.id
+
+    @api.onchange("location_id")
+    def onchange_subcounty_id(self):
+        for record in self:
+            subcounty = record.subcounty_id
+            if not record.county_id and subcounty and subcounty.county_id:
+                record.county_id = subcounty.county_id.id
