@@ -7,13 +7,19 @@
             <field name="description">Category for Human Resource related modules</field>
         </record>
 
+        <!-- Define the User Group -->
+        <record id="group_hr_user" model="res.groups">
+            <field name="name">User</field>
+            <field name="category_id" ref="county_hr.module_category_hr"/>
+        </record>
+
         <!-- Define the Manager Group -->
         <record id="group_hr_manager" model="res.groups">
             <field name="name">Manager</field>
             <field name="category_id" ref="county_hr.module_category_hr"/>
             <field
                     name="implied_ids"
-                    eval="[(4, ref('group_hr_user'))]"
+                    eval="[(4, ref('county_hr.group_hr_user'))]"
             />
             <field
                     name="users"
@@ -21,17 +27,11 @@
             />
         </record>
 
-        <!-- Define the User Group -->
-        <record id="group_hr_user" model="res.groups">
-            <field name="name">User</field>
-            <field name="category_id" ref="county_hr.module_category_hr"/>
-        </record>
-
         <!-- Assign Manager Group to HR Manager -->
 <!--        <record id="group_hr_manager_manager" model="res.groups_users_rel">-->
 <!--            <field name="gid" ref="group_hr_manager"/>-->
 <!--            <field name="uid" ref="base.user_root"/>-->
-<!--        </record>-->group_hr_manager
+<!--        </record>-->
 
     </data>
 </odoo>
