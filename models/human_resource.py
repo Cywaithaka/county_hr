@@ -2,6 +2,7 @@ from odoo import models, fields, api
 
 
 class HumanResource(models.Model):
+    _inherit = "generic.tag.mixin"
     _name = 'human.resource'
     _description = 'Human Resource'
 

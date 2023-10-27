@@ -24,7 +24,7 @@ Capture the
     "category": "Human Resources",
 
     # any module necessary for this one to work correctly
-    'depends': ['base'],
+    'depends': ['base', 'generic_tag', 'generic_mixin'],
 
     # always loaded
     'data': [

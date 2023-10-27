@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
+        <!-- Add human.resource as a taggable model -->
+        <record model="generic.tag.model" id="generic_tag_model_product_product">
+            <field name="res_model_id" ref="county_hr.model_human_resource"/>
+        </record>
+
         <!-- Job Applicant Form View -->
         <record id="view_human_resource_form" model="ir.ui.view">
             <field name="name">human.resource.form</field>
@@ -24,7 +29,7 @@
                             </h2>
                         </div>
                         <group>
-                            <group string="Personal Details">
+                            <group string="Contact Details">
                                 <field name="email"/>
                                 <field name="phone"/>
                                 <field name="address"/>
@@ -34,6 +39,11 @@
                                 <field name="subcounty_id"/>
                                 <field name="location_id"/>
                                 <field name="village_id"/>
+                            </group>
+                            <group string="Category Details">
+                                <field name="tag_ids" widget="many2many_tags" placeholder="Categories..."
+                                       context="{'default_model': 'human.resource'}"
+                                       options="{'color_field': 'color'}"/>
                             </group>
                             <notebook>
                                 <page string="Academic Qualifications">
@@ -85,6 +95,7 @@
                     <field name="subcounty_id"/>
                     <field name="location_id"/>
                     <field name="village_id"/>
+                    <field name="tag_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
                 </tree>
             </field>
         </record>
@@ -99,6 +110,7 @@
                     <field name="email" string="Email"/>
                     <field name="phone" string="Phone"/>
                     <field name="qualifications" string="Academics" filter_domain="['|', ('qualifications.degree', 'ilike', self), ('qualifications.institution', 'ilike', self)]"/>
+                    <field name="search_tag_id" string="Category"/>
                     <field name="subcounty_id"/>
                     <field name="location_id"/>
                     <field name="village_id"/>
